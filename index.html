@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Quotes</title>
+        <style>
+            #body{
+                height: 100vh;
+                background-color: rgb(28, 28, 28);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                transition: 0.5s ease 0s;
+            }
+            #body.mad{
+                background-image: url(R.gif);
+                background-size: cover;
+            }
+            #container{
+                background-color: rgb(59, 59, 59);
+                border-radius: 10px;
+                position: relative;
+                display: flex;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                margin: 0 auto;
+                width: 500px;
+                box-shadow: 0 20px 65px black;
+                transition: 1s ease;
+            }
+            #btn{
+                margin: 50px auto;
+                height: 30px;
+                width: 100px;
+                background-color: green;
+                border-radius: 10px;
+                font-size: 12px;
+                color: white;
+                border-color: transparent;
+                cursor: pointer;
+            }
+            #btn.loading{
+                background-color: lightgreen;
+                color: green;
+            }
+            #quote{
+                margin: 25px auto;
+                font-size: 25px;
+                color: white;
+                font-weight: 700;
+                opacity: 0;
+            }
+            #author{
+                margin: 25px auto;
+                font-size: 19px;
+                color: white;
+                font-weight: 900;
+                text-align: right;
+                opacity: 0;
+            }
+            
+            #whte{
+                pointer-events: none;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                background-color: white;
+                position: absolute;
+                opacity: 0;
+            }
+            #revive{
+                margin: 50px auto;
+                height: 60px;
+                width: 200px;
+                font-size: 30px;
+                color: black;
+                background-color: transparent;
+                border-color: transparent;
+                text-align: center;
+                visibility: hidden;
+                cursor: pointer;
+                opacity: 0;
+                transition: 2s;
+                position: absolute;
+            }
+            #quote.fade, #author.fade, #whte.fade{
+                opacity: 1;
+                transition: opacity 1s;
+            }
+            #revive.fade{
+                visibility: visible;
+                opacity: 1;
+                transition: opacity 1s;
+            }
+        </style>
+    </head>
+    <body id="body">
+        <div id="container">
+            <div id="quote"></div>
+            <div id="author"></div>
+            <button id="btn">Another quote</button>
+            
+        </div>
+        <div id="whte"></div>
+        <button id="revive" onclick="window.location.reload();">Revive</button>
+        <script>
+            let btn = document.getElementById('btn');
+            let quote = document.getElementById('quote'); 
+            let author = document.getElementById('author');
+            let whte = document.getElementById('whte');
+            let revive = document.getElementById('revive');
+            let body = document.getElementById('body');
+            var num = 0; 
+            const url = "https://api.quotable.io/random";
+
+
+            function increasenum(){
+                num = num+1;
+                console.log(num);
+            }
+            
+            let getquote = () => {
+                quote.classList.remove("fade");
+                author.classList.remove("fade");
+                if(num == 3){
+                    btn.classList.add("loading");
+                    btn.innerText = "Loading quote...";
+                    quote.innerText = "Hey it's me, Goku!";
+                    author.innerText = "Goku";
+                    btn.innerText = "Another quote";
+                    btn.classList.remove("loading");
+                    quote.classList.add("fade");
+                    author.classList.add("fade");
+                }else if(num == 8){
+                    btn.classList.add("loading");
+                    btn.innerText = "Loading quote...";
+                    quote.innerText = "I like to train by fighting stronger people";
+                    author.innerText = "Goku";
+                    btn.innerText = "Another quote";
+                    btn.classList.remove("loading");
+                    quote.classList.add("fade");
+                    author.classList.add("fade");
+                }
+                else if(num == 12){
+                    btn.classList.add("loading");
+                    btn.innerText = "Loading quote...";
+                    quote.innerText = "You seem to be pretty strong, I think we should fight";
+                    author.innerText = "Goku";
+                    btn.innerText = "Another quote";
+                    btn.classList.remove("loading");
+                    quote.classList.add("fade");
+                    author.classList.add("fade");
+                }
+                else if(num == 14){
+                    btn.classList.add("loading");
+                    btn.innerText = "Loading quote...";
+                    quote.innerText = "What do you think?";
+                    author.innerText = "Goku";
+                    btn.innerText = "Another quote";
+                    btn.classList.remove("loading");
+                    quote.classList.add("fade");
+                    author.classList.add("fade");
+                }
+                else if(num == 15){
+                    btn.classList.add("loading");
+                    btn.innerText = "Loading quote...";
+                    quote.innerText = "That's enough. You think since I'm a good person I'll let this pass?";
+                    author.innerText = "Goku";
+                    btn.innerText = "Another quote";
+                    btn.classList.remove("loading");
+                    quote.classList.add("fade");
+                    author.classList.add("fade");
+                    body.classList.add("mad");
+                }
+                else if(num == 16){
+                    btn.classList.add("loading");
+                    btn.innerText = "Loading quote...";
+                    quote.innerText = "Ignoring will make you in more trouble";
+                    author.innerText = "Goku";
+                    btn.innerText = "Another quote";
+                    btn.classList.remove("loading");
+                    quote.classList.add("fade");
+                    author.classList.add("fade");
+                    
+                }
+                else if(num == 17){
+                    btn.classList.add("loading");
+                    btn.innerText = "Loading quote...";
+                    quote.innerText = "Just kidding. You can keep enjoying your day^^";
+                    author.innerText = "Goku";
+                    btn.innerText = "Another quote";
+                    btn.classList.remove("loading");
+                    quote.classList.add("fade");
+                    author.classList.add("fade");
+                    body.classList.remove("mad");
+                }
+                else if(num == 19){
+                    btn.classList.add("loading");
+                    btn.innerText = "Loading quote...";
+                    quote.innerText = "You fool. I won't go easy on you";
+                    author.innerText = "Goku";
+                    btn.innerText = "Another quote";
+                    btn.classList.remove("loading");
+                    quote.classList.add("fade");
+                    author.classList.add("fade");
+                    body.classList.add("mad");
+                }
+                else if(num == 20){
+                    btn.classList.add("loading");
+                    btn.innerText = "Loading quote...";
+                    quote.innerText = "KAAAAAMEEEEEHAAAMEEEE...";
+                    author.innerText = "Goku";
+                    btn.innerText = "CLICK TO RUN";
+                    btn.classList.remove("loading");
+                    quote.classList.add("fade");
+                    author.classList.add("fade");
+                }
+                else if(num == 21){
+                    btn.classList.add("loading");
+                    btn.innerText = "Loading quote...";
+                    quote.innerText = "HAAAAAAAAAAA";
+                    author.innerText = "Goku";
+                    btn.innerText = "";
+                    btn.classList.remove("loading");
+                    quote.classList.add("fade");
+                    author.classList.add("fade");
+                    whte.classList.add("fade");
+                    revive.classList.add("fade");
+                    btn.style.visibility = "hidden";
+
+                }else{
+                    btn.classList.add("loading");
+                    btn.innerText = "Loading quote...";
+                    fetch(url)
+                    .then((data) => data.json())
+                    .then((item) => {
+                        quote.innerText = item.content;
+                        author.innerText = item.author;
+                        btn.innerText = "Another quote";
+                        btn.classList.remove("loading");
+                        quote.classList.add("fade");
+                        author.classList.add("fade");
+                    });
+                }
+                
+            };
+            window.addEventListener("load",getquote);
+            btn.addEventListener("click",increasenum);
+            btn.addEventListener("click",getquote);
+        </script>
+    </body>
+</html>
